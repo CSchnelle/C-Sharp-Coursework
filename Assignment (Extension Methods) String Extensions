@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace ExtensionMethods
+{
+    public static class StringExtensions
+    {
+        private const string EMAIL_REG_EX = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+
+        /// <summary>        
+        ///  Checks whether a string is null or empty     
+        ///  </summary>         
+        /// <param name="content"></param>      
+        ///  <returns>bool, true if null or empty</returns> 
+        public static bool IsNullOrEmpty(this string content)
+        {
+            return string.IsNullOrEmpty(content);
+        }
+
+        /// <summary>        
+        /// Examines string value to determine if it is a valid email         
+        ///  </summary>        
+        ///  <param name="content"></param>        
+        ///  <returns>bool, true if valid email</returns> 
+        public static bool IsValidEmail(this string content)
+        {
+            // extension created by Mark Reynolds          
+            if (string.IsNullOrEmpty(content)) return false;
+            return Regex.IsMatch(content, EMAIL_REG_EX);
+        }
+
+        /// <summary>       
+        ///  Check that string contains numbers only        
+        ///  </summary>     
+        ///  <param name="content"></param>      
+        ///  <returns>bool, true if contains only numbers</returns> 
+        public static bool IsNumeric(this string content)
+        {
+            // extension created by Mark Reynolds        
+            if (string.IsNullOrEmpty(content)) return false;
+            return Regex.IsMatch(content, @"^[0-9]*.?[0-9]*$");
+        }
+
+        /// <summary>        
+        ///  Compares a string with a RegEx to determine if the string is a match       
+        ///  </summary>         
+        /// <param name="content"></param>       
+        ///  <param name="regEx"></param>       
+        ///  <returns>bool, true if string matches RegEx</returns> 
+        public static bool IsMatch(this string content, string regEx)
+        {
+            // extension created by Mark Reynolds        
+            if (string.IsNullOrEmpty(content)) return false;
+            return Regex.IsMatch(content, regEx);
+        }
+
+        /// <summary>      
+        ///  </summary>        
+        ///  <param name="content"></param>       
+        ///  <param name="numCharacters"></param>       
+        ///  <returns>string</returns> 
+        public static string Left(this string content, int numCharacters)
+        {
+            if (content == null) return null;
+            if (content.Length < numCharacters) return content;
+            return content.Substring(0, numCharacters);
+        }
+
+        /// <summary>       
+        ///  Returns the number of characters specified, starting from the right side of the string       
+        ///  </summary>       
+        ///  <param name="content"></param>     
+        ///  <param name="numCharacters"></param>     
+        ///  <returns>string</returns> 
+        public static string Right(this string content, int numCharacters)
+        {
+            if (content.Length < numCharacters) return content;
+            return content.Substring(content.Length - numCharacters, numCharacters);
+        }
+
+        /// <summary>Returns a string representation of the provided value. Returns an empty string if the
+        ///  value is null</summary>       
+        ///  <param name="value">Value to be turned into a string</param> 
+        ///   <returns>String</returns> 
+        public static string ToStringSafe(this object value)
+        {
+            try
+            {
+                if (value == null) return string.Empty;
+
+                var formattableValue = value as IFormattable;
+                if (formattableValue != null)
+                    return formattableValue.ToString(null,
+                        CultureInfo.InvariantCulture);
+
+                return value.ToString();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+    }
+}
