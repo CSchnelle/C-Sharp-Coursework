@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+ 
+     
+namespace Project05_MoreClasses
+{
+   public class Program
+    {
+        static void Main(string[] args)
+        {
+            EmployeeDatabase employeeDatabase = new EmployeeDatabase();
+            Console.WriteLine($"Number of Employees: {employeeDatabase.Count()}");
+
+            for (int employeeNumber = 0; employeeNumber < employeeDatabase.Count(); employeeNumber++)
+            {
+                Employee employee = employeeDatabase[employeeNumber];
+                Console.Write($"Employee #{employee.EmployeeNumber} : {employee.EmployeeName}");
+                Console.WriteLine($"({employee.MaritalStatus}), Exemptions: {employee.Exemptions}");
+                Console.WriteLine($", Rating: {employee.Rating}");
+            }
+            Console.WriteLine();
+
+            Console.Write("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}
