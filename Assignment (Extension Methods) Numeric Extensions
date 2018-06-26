@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+  
+namespace ExtensionMethods
+{
+   public static class NumericExtensions
+    {
+        /// <summary>      
+        ///Converts an object into a standard int, if possible      
+        ///  </summary>     
+        ///  <author>Mark Reynolds</author>     
+        ///  <param name="content">extended object variable</param>
+        ///  <param name="defaultValue">vaule to return if not convertable</param>       
+        /// <returns>resulting value - either the converted value or the default</returns>      
+        public static int ToInt(this object content, int defaultValue)
+        {
+            try
+            {
+                if (content == null) return defaultValue;
+                if (content.Equals(DBNull.Value)) return defaultValue;
+
+                int result;
+                if (int.TryParse(content.ToString(), out result)) return result;
+
+                return defaultValue;
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
+        /// <summary>     
+        ///  Converts an object into a nullable int  
+        ///  </summary>      
+        ///  <author>Mark Reynolds</author>      
+        /// <param name="content">extended object variable</param>     
+        ///  <returns>resulting value - either the converted value or the default</returns>     
+        public static int? ToNullableInt(this object content)
+        {
+            try
+            {
+                if (content == null) return null;
+                if (content.Equals(DBNull.Value)) return null;
+
+                int result;
+                if (int.TryParse(content.ToString(), out result)) return result;
+
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>      
+        /// Performs a basic ToString operation on a Int? - but returns an empty string if null    
+        ///  </summary>       
+        ///  <author>Mark Reynolds</author>      
+        ///  <param name="content">extended Int32? variable</param>       
+        /// <returns>ToString result</returns>     
+        public static string ToString(this int? content)
+        {
+            // extension created by Mark Reynolds        
+            try
+            {
+                return (content.HasValue ? content.Value.ToString(System.Globalization.CultureInfo.InvariantCulture) :
+         string.Empty);
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+        /// <summary>  
+        ///    Performs a formatted ToString operation on a Int? - but returns an empty string if null       /// </summary>       /// <author>Mark Reynolds</author>     
+        ///  <param name="content">extended Int32? variable</param>     
+        ///  <param name="format">formatting template</param>       
+        ///  <returns>formatted ToString result</returns>      
+        public static string ToString(this int? content, string format)
+        {
+            // extension created by Mark Reynolds         
+            try
+            {
+                return (content.HasValue ? content.Value.ToString(format) : string.Empty);
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+    }
+}
