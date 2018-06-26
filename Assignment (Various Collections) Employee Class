@@ -1,0 +1,19 @@
+/*
+ * Cat Schnelle
+ */ 
+namespace Project03_VariousCollections
+{
+    public class Employee
+    {
+        public string Name { get; set; }
+        public int ID { get; internal set; }
+        public object Exemptions { get; internal set; }
+        public Employee employees { get; private set; }
+
+     
+        public override string ToString()
+        {
+            return $"[Employee: Name = {Name}]";
+        }
+    }
+}
