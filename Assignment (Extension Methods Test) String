@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using Shouldly;
+using ExtensionMethods;
+using NUnit.Compatibility;
+/*
+ * CatSchnelle
+ */
+  
+namespace ExtensionMethodsTest
+{
+
+    public static class StringExtensionsTest
+    {
+        [Test]
+        public static bool IsNullOrEmpty(this string content)
+        {
+            if (string.IsNullOrEmpty(content)) return false;
+            return IsNullOrEmpty(content);
+        }
+       
+        public static bool IsValidEmail(this string content)
+        {
+            if (string.IsNullOrEmpty(content)) return false;
+            return IsValidEmail(content);
+        }
+
+        public static bool IsNumeric(this string content)
+        {
+            if (string.IsNullOrEmpty(content)) return false;
+            return IsNumeric(content);
+        }
+
+        public static bool IsMatch(this string content, string regEx)
+        {
+            if (string.IsNullOrEmpty(content)) return false;
+            return Regex.IsMatch(content, regEx);
+        }
+        //returning regex because its in the method
+      
+
+        
+
+    }
+
+}
