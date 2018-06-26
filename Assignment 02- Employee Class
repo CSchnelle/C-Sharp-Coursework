@@ -1,0 +1,15 @@
+namespace Project02_Constructors
+{
+   public class Employee
+    {
+        public int YearsOfService { get; set; }
+        public int Office { get; set; }
+
+        public Employee() { }
+        public Employee(int years, int office)
+        {
+            YearsOfService = years;
+            Office = office;
+        }
+    }
+}
