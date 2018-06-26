@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+     
+namespace Project06_switchDemo
+{
+    class Program
+    {
+        enum Movies
+        {
+            Casablanca,
+            Godfather,
+            Matrix
+        }
+        static void Main(string[] args)
+        {
+            Movies bestMovie = Movies.Godfather;
+
+            switch (bestMovie)
+            {
+            case Movies.Casablanca:
+            Console.WriteLine("Ahhh, Bogie and Bacall...");
+            break;
+            case Movies.Godfather:
+            Console.WriteLine("I'll make him an offer...");
+            break;
+            case Movies.Matrix:
+            Console.WriteLine("Will you take the red pill or the blue?");
+            break;
+            default:
+            Console.WriteLine("You gotta pick one");
+            break;                 
+            }
+            Console.Write("Press any key to continue");
+            Console.ReadKey();
+            // I think this statement would be useful for any type of polling program in which the user has to choose an option to get a direct specific output
+            //for each option, or even a simple choose your own adventure type computer game.
+        }
+    }
+}
