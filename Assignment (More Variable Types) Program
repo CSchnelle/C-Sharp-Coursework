@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+  
+namespace Project07_MoreVariableTypes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            decimal iRate = 3.9834M;
+            iRate = decimal.Round(iRate, 2);
+            decimal dividend = 512.0M;
+            decimal divisor = 51.0M;
+            decimal p = decimal.Parse("100.05");
+            decimal rem = decimal.Remainder(dividend, divisor);
+
+            Console.Write("iRate=");
+            Console.WriteLine(iRate);
+            Console.Write("dividend=");
+            Console.WriteLine(dividend);
+            Console.Write("divisor=");
+            Console.WriteLine(divisor);
+            Console.Write("p=");
+            Console.WriteLine(p);
+            Console.Write("rem=");
+            Console.WriteLine(rem);
+            Console.WriteLine();
+
+            string pattern = "123abcd?";
+            char myChar = pattern[0];
+            bool bt;
+            bt = char.IsLetter(pattern, 3);
+            Console.WriteLine("char.IsLetter(pattern, 3)=" + bt.ToString());
+            bt = char.IsNumber(pattern, 3);
+            Console.WriteLine("char.IsNumber(pattern, 3)=" + bt.ToString());
+            bt = char.IsLower(pattern, 0);
+            Console.WriteLine("char.IsLower(pattern, 0)=" + bt.ToString());
+            bt = char.IsPunctuation(pattern, 7);
+            Console.WriteLine("char.IsPunctuation(pattern, 7)=" + bt.ToString());
+            bt = char.IsLetterOrDigit(pattern, 7);
+            Console.WriteLine("char.IsLetterOrDigit(pattern, 7)=" + bt.ToString());
+            bt = char.IsNumber(pattern, 2);
+            Console.WriteLine("char.IsNumber(pattern, 2)=" + bt.ToString());
+            Console.WriteLine();
+
+            float xFloat = 24567.66F;
+            int xint = Convert.ToInt32(xFloat); //returns 24567
+            int xint2 = (int)xFloat;
+            if (xint == xint2) { Console.WriteLine("(xint == xint2)"); } //False
+            string x5tr = Convert.ToString(xFloat);
+            Single zero = 0;
+            if (Single.IsNaN(0 / zero)) { Console.WriteLine("(Single.IsNan(0 / zero))"); } // True
+            double xDouble = 124.56D;
+            Console.WriteLine("xDouble=" + xDouble.ToString());
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            // The difference between double and decimal is precision, decimal is used for more precise numbers, specifically fractional numbers like 
+            //financial integers etc. while double is used for speed and for when there are significant digits that are too great to be exactly precise. 
+            //Double can represent very large numbers that decimal cannot. 
+        }
+    }
+}
