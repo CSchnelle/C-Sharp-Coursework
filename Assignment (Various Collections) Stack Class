@@ -1,0 +1,28 @@
+/*
+ * Cat Schnelle
+ */
+  
+using System;
+
+namespace Project03_VariousCollections
+{
+    class Stack
+    {
+        int count { get; }
+        internal void Push(object employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object Pop()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int Count(object count)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
