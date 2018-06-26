@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+ 
+     
+namespace Project02_TypedArrays
+{
+    class Program
+    {
+        struct Employee
+        {
+            public int ID;
+            public string Name;
+            public int Exemptions;
+        }
+
+        private static Employee[] employees =
+        {
+            new Employee {ID = 101, Name = "Fred Flintstone", Exemptions = 3 },
+            new Employee {ID = 102, Name = "Wilma Flintstone", Exemptions = 0 },
+            new Employee {ID = 103, Name = "Barney Rubble", Exemptions = 3 },
+            new Employee {ID = 20, Name = "Fred Mertz", Exemptions = 2 },
+            new Employee {ID = 201, Name = "Ethel Mertz", Exemptions = 2 },
+            new Employee {ID = 221, Name = "Fred Astair", Exemptions = 1 },
+            new Employee {ID = 222, Name = "Ginger Rogers", Exemptions = 1 },
+            new Employee {ID = 223, Name = "Fred Savage",Exemptions = 1 },
+            new Employee {ID = 224, Name = "Winnie Cooper", Exemptions = 1 }
+        };
+        
+        static void Main(string[] args)
+        {
+
+            for (int arrayitem = 0; arrayitem < employees.Length; arrayitem++)
+            {
+                var employee = employees[arrayitem];
+                Console.WriteLine("{0} {1} {2}", employee.ID, employee.Name, employee.Exemptions);
+            }
+            
+
+            Console.WriteLine();
+
+            foreach (var employee in employees)
+            {
+                Console.WriteLine("{0} {1} {2}", employee.ID, employee.Name, employee.Exemptions);
+            }
+
+            Console.WriteLine();
+
+            var flippedEmployees = employees.Reverse();
+            foreach (var employee in flippedEmployees)
+                // this foreach statement is a way to iterate through array elements, arrays may not insert or remove items
+                // but they may be written to change the order in which the elements are iterated, or reversed.
+            Console.WriteLine("{0} {1} {2}", employee.ID, employee.Name, employee.Exemptions);
+            Console.WriteLine();
+
+            Console.Write("Press a key to continue");
+            Console.ReadKey();
+        }
+    }
+}
