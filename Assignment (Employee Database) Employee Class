@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+  
+namespace Project05_MoreClasses
+{
+    public enum EmployeeMaritalStatus
+    {
+        Single,
+        Married
+    }
+    public enum EmployeeRating
+    {
+        Excellent,
+        Good,
+        Adequate,
+        Poor
+    }
+
+    public class Employee
+    {
+
+        public string EmployeeName { get; set; }
+        public string EmployeeNumber {get; set;}
+        public EmployeeMaritalStatus MaritalStatus { get; set; }
+        public int Exemptions { get; set;}
+        public  EmployeeRating Rating { get; set; }
+        public string Department { get; set; } = "Information Technology";
+    }
+}
