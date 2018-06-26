@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * CatSchnelle
+ */
+ 
+     
+namespace Project05_MoreClasses
+{
+   public class EmployeeDatabase
+    {
+        private readonly Employee[] _employee;
+
+        public const int RegularHoursPerWeek = 40;
+
+        public EmployeeDatabase()
+        {
+
+            _employee = new Employee[]
+            {
+
+                new Employee
+                {
+                    EmployeeNumber = "489234",
+                    EmployeeName = "Fred Flinstone",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 3,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+                    EmployeeNumber = "987435",
+                    EmployeeName = "Wilma Flintstone",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 3,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+
+                    EmployeeNumber = "874898",
+                    EmployeeName = "Fred Mertz",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 2,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+                    EmployeeNumber ="589738",
+                    EmployeeName = "Ethel Mertz",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 2,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+                    EmployeeNumber ="877555",
+                    EmployeeName = "Fred Savage",
+                    MaritalStatus = EmployeeMaritalStatus.Single,
+                    Exemptions = 1,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+                    EmployeeNumber = "489789",
+                    EmployeeName = "Winnie Cooper",
+                    MaritalStatus = EmployeeMaritalStatus.Single,
+                    Exemptions = 1,
+                    Rating = EmployeeRating.Good
+                },
+
+                new Employee
+                {
+                    EmployeeNumber = "897487",
+                    EmployeeName = "Fred Astaire",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 2,
+                    Rating = EmployeeRating.Poor
+                },
+
+                new Employee
+                {
+                    EmployeeNumber = "498777",
+                    EmployeeName = "Ginger Rogers",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 3,
+                    Rating = EmployeeRating.Adequate
+                },
+
+                new Employee
+                {
+                    EmployeeNumber = "897488",
+                    EmployeeName = "Cat Schnelle",
+                    MaritalStatus = EmployeeMaritalStatus.Married,
+                    Exemptions = 2,
+                    Rating = EmployeeRating.Good
+                },
+
+            };
+        }
+        public int Count()
+        {
+            return _employee.Count();
+        }
+
+        public Employee this[int employeeNumber]
+        {
+            get { return _employee[employeeNumber]; }
+            set { _employee[employeeNumber] = value; }
+        }
+
+    }
+}
