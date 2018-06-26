@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */
+
+namespace Project01_VariableTypes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int myAge = 28;
+            int x = 5;
+            double myHourlyRate = 150.00;
+            string myName = "Cat Schnelle";
+
+            //this syntax works for all C#
+            Console.WriteLine("myAge: " + myAge + ", x: " + x + ". myHourlyRate: " + myHourlyRate + ", myName: " + myName);
+
+            myAge = 35;
+            x = 20;
+            myHourlyRate = 85.00;
+            myName = "George Washington";
+            // this syntax is new for C#6
+            Console.WriteLine($"myAge: {myAge}, x: {x}, myHourlyRate: {myHourlyRate}, myName: {myName}");
+
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}
