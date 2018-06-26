@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using Shouldly;
+
+using ExtensionMethods;
+/*
+ * Cat Schnelle
+ */
+  
+namespace ExtensionMethodsTest
+{
+    [TestFixture]
+    public class NumericExtensionsTest
+    {
+        [Test]
+        public void ToIntTest()
+        {
+            var test1 = "12";
+            test1.ToInt(0).ShouldBe(12);
+
+            var test2 = "test";
+            test2.ToInt(0).ShouldBe(0);
+
+            var test3 = "123.45.67";
+            test3.ToInt(0).ShouldBe(0);
+
+            var test4 = true;
+            test4.ToInt(0).ShouldBe(0);
+            object test5 = null;
+            test5.ToInt(0).ShouldBe(0);
+        }
+    }
+}
