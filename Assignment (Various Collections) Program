@@ -1,0 +1,106 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+/*
+ * Cat Schnelle
+ */
+
+namespace Project03_VariousCollections
+{
+    class Program
+    {
+        private static IEnumerable<object> employees;
+
+        public static object count { get; private set; }
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine();
+                Console.WriteLine("A)rrayList");
+                Console.WriteLine("Q)ueues");
+                Console.WriteLine("S)tacks");
+                Console.WriteLine("X) exit");
+                Console.Write("Select Demonstration");
+                var keyPressed = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+                switch (keyPressed.ToString().ToUpper())
+                {
+                    case "A":
+                        DemoArrayList();
+                        break;
+
+                    case "Q":
+                        DemoQueues();
+                        break;
+
+                    case "S":
+                        DemoStacks();
+                        break;
+
+                    case "X":
+                        return;
+                }
+            }
+        }
+        // This menu offers access to each single collection class
+        static void DemoQueues()
+        {          
+            var exampleQueue = new Queue();
+
+            foreach (var employee in employees)
+            {
+                exampleQueue.Enqueue(employee);
+            }
+            while (exampleQueue.Count(count) > 0)
+            {
+                var example = exampleQueue.Dequeue();
+                PrintOneEmployee((Employee)example);
+            }
+            // For Queues Enqueue and Dequeue is used to identify elements being added or removed, in the order of First in First out.
+        }
+        static void DemoStacks()
+        {
+            var exampleStack = new Stack();
+
+            foreach (var employee in employees)
+            {
+                exampleStack.Push(employee);
+            }
+            while (exampleStack.Count(count) > 0)
+            {
+                var example = exampleStack.Pop();
+                PrintOneEmployee((Employee)example);
+            }
+        }
+        // For stack I used push and pop which demonstrates the order in which information is added and removed. Last in first out.
+
+        static void PrintOneEmployee(Employee emp)
+        {
+            Console.WriteLine("{0} {1} {2}", emp.ID, emp.Name, emp.Exemptions);
+        }
+        static void DemoArrayList()
+        {
+            var exampleArrayList = new ArrayList();
+
+            foreach (var employee in employees)
+            {
+                exampleArrayList.Add(employee);
+            }
+            exampleArrayList.RemoveAt(2);
+
+            var me = new Employee()
+            {
+                ID = 1,
+                Name = "Cat Schnelle",
+                Exemptions = 2
+            };
+            exampleArrayList.Insert(2, me);
+
+            foreach (var example in exampleArrayList)
+            {
+                PrintOneEmployee((Employee)example);
+            }
+        }
+    } 
+}
