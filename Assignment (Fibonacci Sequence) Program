@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Cat Schnelle
+ */ 
+
+namespace Project08_FibonacciSequence
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int currentTotal = 1;
+            int previousValue = 0;
+
+            int newTotal;
+
+            do
+            {
+                newTotal = currentTotal + previousValue;
+                Console.Write(newTotal);
+                currentTotal = previousValue;
+                // whenever the program runs this next line will ensure that the sequence starts with 1, then 1 again with current total having previous value
+                previousValue = newTotal;
+                //since previousValue will now be 1 once the program runs in order, making previousValue the newTotal means that currentTotal will
+                //be 1 and the second 1, making the next number 2 then the sum being 3
+
+            }
+            while (newTotal < 55);
+            // this ensures that the sequence will only add up to 55, I accidentally before fixing errors had this line twice in the code,
+            //producing two 55's at the end of the sequence which demonstrated the logic of the program running in sequence to the lines of code which I found was 
+            //a helpful error to make in the beginning.
+           
+            Console.WriteLine(); 
+            // added this line to create new line in the program to separate the two write lines containing the sequence and "press any key to continue"
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}
